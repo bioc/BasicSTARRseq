@@ -88,9 +88,25 @@ setMethod(f="getPeaks",
 
               # potential summit positions
               message("calculate potential summit positions")
-              potSummitPos <- lapply(sampleCov, .getPeakPos,
-                                    quantile(unlist(sampleCov), minQuantile), 
-                                    peakWidth)
+              if (sum(as.numeric(sapply(sampleCov,length))) > 2^31-1){
+                  sortedSampleCov <- sampleCov
+                  for (chr in seq_along(sampleCov)){
+                      ord <- order(runValue(sampleCov[[chr]]))
+                      sortedSampleCov[[chr]] <- 
+                          Rle(runValue(sampleCov[[chr]])[ord],
+                              runLength(sampleCov[[chr]])[ord])
+                  }
+                  sortedRunValue <- unlist(sapply(sortedSampleCov, runValue))
+                  ord <- order(sortedRunValue)
+                  sortedRunValue <- sortedRunValue[ord]
+                  sortedRunLength <- as.numeric(unlist(sapply(sortedSampleCov,
+                                                              runLength))[ord])
+                  quan <- sortedRunValue[which(cumsum(sortedRunLength) >=
+                              minQuantile*sum(sortedRunLength))[1]]
+              } else {
+                  quan <- quantile(unlist(sampleCov), minQuantile)
+              }
+              potSummitPos <- lapply(sampleCov, .getPeakPos, quan, peakWidth)
 
               summitsStarts <- pmax(1, unlist(potSummitPos)-
                                         ceiling(peakWidth/2))
