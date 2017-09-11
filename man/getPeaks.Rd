@@ -38,7 +38,7 @@
     [1] \emph{Genome-Wide Quantitative Enhancer Activity Maps Identified by STARR-seq}. Arnold et al. Science. 2013 Mar 1;339(6123):1074-7. doi: 10.1126/science.1232542. Epub 2013 Jan 17.
 }
 \author{
-    A. Buerger
+    Annika Buerger
 }
 \seealso{
     \code{\link{GRanges}}
