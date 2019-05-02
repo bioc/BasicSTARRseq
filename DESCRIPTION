@@ -1,7 +1,7 @@
 Package: BasicSTARRseq
 Type: Package
 Title: Basic peak calling on STARR-seq data
-Version: 1.11.0
+Version: 1.12.0
 Date: 2015-01-11
 Author: Annika Buerger
 Maintainer: Annika Buerger <annika.buerger@ukmuenster.de>
