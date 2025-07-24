@@ -1,11 +1,11 @@
 Package: BasicSTARRseq
 Type: Package
 Title: Basic peak calling on STARR-seq data
-Version: 1.37.0
-Date: 2015-01-11
+Version: 1.37.1
+Date: 2025-07-24
 Author: Annika Buerger
 Maintainer: Annika Buerger <annika.buerger@ukmuenster.de>
-Imports: S4Vectors,methods,IRanges,GenomeInfoDb,stats
+Imports: S4Vectors,methods,IRanges,Seqinfo,stats
 Depends: GenomicRanges,GenomicAlignments
 Description: Basic peak calling on STARR-seq data based on a method
         introduced in "Genome-Wide Quantitative Enhancer Activity Maps
